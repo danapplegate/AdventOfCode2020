@@ -18,7 +18,7 @@ def num_paths(start, end, graph):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Advent of Code Day 9: Encoding Error")
+    parser = argparse.ArgumentParser(description="Advent of Code Day 10: Adapter Array")
     parser.add_argument(
         "filename", nargs="?", type=argparse.FileType("r"), default=sys.stdin
     )
