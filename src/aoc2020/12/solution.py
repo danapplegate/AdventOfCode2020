@@ -19,23 +19,14 @@ class Vector:
         self.x = x
         self.y = y
 
-    def magnitude(self):
-        return (self.x ** 2 + self.y ** 2) ** 0.5
-
-    def angle(self):
-        # have to handle division by zero
-        if self.x == 0:
-            if self.y > 0:
-                return 90
-            else:
-                return 270
-        return degrees(atan(self.y / self.x))
-
     def rotate(self, degrees):
-        angle = self.angle() + degrees
-        magnitude = self.magnitude()
-        self.x = round(magnitude * cos(radians(angle)))
-        self.y = round(magnitude * sin(radians(angle)))
+        degrees %= 360
+        if degrees == 90:
+            self.x, self.y = -self.y, self.x
+        elif degrees == 180:
+            self.x, self.y = -self.x, -self.y
+        elif degrees == 270:
+            self.x, self.y = self.y, -self.x
 
 
 class Ferry:
